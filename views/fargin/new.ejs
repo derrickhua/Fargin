@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+<H1 class="habit-title">ENTER A NEW LONG TERM HABIT</H1>
+<div class="habit-list">
+<form action="/new" method="POST">
+    <label>Name:
+        <input type="text" name="name">
+    </label><br>
+    <label>Specific Goal:
+        <input type="text" name="specificGoal">
+    </label><br>
+    <input type="submit" value="Add New Habit">
+    </form>
+</div>
+
+
+
+<%- include('../partials/footer') %>

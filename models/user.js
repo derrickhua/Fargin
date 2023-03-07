@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 
 var logSchema = new mongoose.Schema({
-  duration: Number
+  duration: Number,
+  progress: String,
 }, {
   timestamps: true
 })

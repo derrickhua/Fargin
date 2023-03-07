@@ -1,11 +1,17 @@
 <%- include('../partials/header') %>
+<H1 class="habit-title">LIST OF LONG TERM HABITS</H1>
+<div class="habit-list">
+  <div class="list">
+    <ul>
+      <%- users.habits.map(h => 
+      `<a href=`/habit/${h.id}`>${h.name}</li>`
+      ).join('') %> 
+    </ul>
+  </div>
+<div class="btn-area">
+  <a href="/new">+</a>
+</div>
 
-
-<% if (user) { %>
-    <a href="/logout">Log Out</a>
-  <% } else { %>
-    <a href="/auth/google">Login with Google</a>
-  <% } %>
-
+</div>
 
 <%- include('../partials/footer') %>
