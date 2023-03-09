@@ -3,3 +3,5 @@ var usersCtrl = require('../controllers/users');
 var habitsCtrl = require('../controllers/habits')
 
 router.get('/:id', habitsCtrl.show)
+
+module.exports = router;

@@ -109,3 +109,15 @@ ul {
   font-weight: bold;
 }
 
+ul > li {
+  margin: 20px;
+}
+ul > li > a {
+  text-decoration: none;
+  color: #D4A373;
+  font-size: 1.15em;
+}
+
+ul > li > a:hover {
+  color: #CCD5AE;
+}

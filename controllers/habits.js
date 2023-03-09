@@ -5,7 +5,7 @@ module.exports = {
     show
   };
 
-  function create(req, res) {
+  function create(req, res, next) {
     console.log(req.user)
     User.findById(req.user.id).then(function(users) {
         console.log(req.body)
@@ -18,12 +18,13 @@ module.exports = {
     })
   }
 
-  function show(req, res) {
+  function show(req, res, next) {
     User.findById(req.user.id).then(function(user){
         return user.habits
     }).then(function(habits){
-        return habits.findById(req.params.id)
+        return habits.find(habit => habit.id === req.params.id)
     }).then(function(result){
+        console.log(result)
         res.render('fargin/show', {habit: result})
     }).catch(err => {
         if (err) return next(err);

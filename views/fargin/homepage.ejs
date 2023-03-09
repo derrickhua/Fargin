@@ -4,7 +4,7 @@
   <div class="list">
     <ul>
       <%- users.habits.map(h => 
-      `<a href=`/habit/${h.id}`>${h.name}</li>`
+      `<li><a href='/habit/${h.id}'>${h.name}</li>`
       ).join('') %> 
     </ul>
   </div>
