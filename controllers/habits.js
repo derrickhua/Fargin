@@ -1,31 +1,54 @@
-const User = require('../models/user');
-
 module.exports = {
     create,
-    show
+    show,
+    update,
+    delete: deleteHabit
   };
 
   function create(req, res, next) {
-    console.log(req.user)
-    User.findById(req.user.id).then(function(users) {
-        console.log(req.body)
-        users.habits.push(req.body)
-        users.save().then(
-            res.redirect('/homepage')
-        )
+    req.user.habits.push(req.body)
+    req.user.save().then(() => {
+        res.redirect('/homepage')
     }).catch(err => {
         if (err) return next(err);
     })
   }
 
-  function show(req, res, next) {
-    User.findById(req.user.id).then(function(user){
-        return user.habits
-    }).then(function(habits){
-        return habits.find(habit => habit.id === req.params.id)
-    }).then(function(result){
-        console.log(result)
-        res.render('fargin/show', {habit: result})
+  function show(req, res) {
+    let result = req.user.habits.id(req.params.id)
+    res.render('fargin/show', {habit: result})
+
+}
+
+function update(req, res, next) {
+    let result = req.user.habits.id(req.params.id)
+    result.name = req.body.name
+    result.specificGoal = req.body.specificGoal
+    req.user.save().then(() => {
+        console.log(req.user.habits.id(req.params.id))
+        res.redirect('/homepage')
+    }).catch(err => {
+        if (err) return next(err);
+    })
+}
+
+function update(req, res, next) {
+    let result = req.user.habits.id(req.params.id)
+    result.name = req.body.name
+    result.specificGoal = req.body.specificGoal
+    req.user.save().then(() => {
+        console.log(req.user.habits.id(req.params.id))
+        res.redirect('/homepage')
+    }).catch(err => {
+        if (err) return next(err);
+    })
+}
+
+function deleteHabit(req, res, next) {
+    let habitIdx = req.user.habits.indexOf(habit => habit.id === req.params.id)
+    req.user.habits.splice(habitIdx, 1)
+    req.user.save().then(() => {
+        res.redirect('/homepage')
     }).catch(err => {
         if (err) return next(err);
     })

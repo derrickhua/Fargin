@@ -1,8 +1,39 @@
 <%- include('../partials/header') %>
 
-<%- `<h1> ${habit.name} </h1>` %>
+<%- `<h1 class='habit-title habit-name'> ${habit.name} </h1>` %>
 <br>
-<%- `<h1> ${habit.specificGoal} </h1>` %>
+<%- `<h3 class='habit-title'>Specific Goal: ${habit.specificGoal} </h3>` %>
 
+<div class="button-line">
+    <div class="btn-area">
+        <a href="<%- habit.id %>/new">+</a>
+    </div>
+
+    <div class="btn-area">
+        <a href="/del">-</a>
+    </div>    
+</div>
+
+<div id="hiddenForm" class="edit-box">
+    <form action="/habit/<%= habit.id %>?_method=DELETE" method="POST">
+        <label>Name:
+            <input type="text" name="name">
+        </label><br>
+        <label>Specific Goal:
+            <input type="text" name="specificGoal">
+        </label><br>
+        <input class="edit-btn" type="submit" value="Change Habit">
+        </form>
+    </div>
+</div>
+
+<div class="btn-area" id="formButton">
+    <p>EDIT</p>
+</div>
+<div class="btn-area delete">
+    <form action="/habit/<%= habit.id %>?_method=DELETE" method="POST">
+        <input class='delBtn' type="submit" value="DELETE">
+    </form>
+</div>
 
 <%- include('../partials/footer') %>

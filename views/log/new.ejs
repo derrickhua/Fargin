@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+<H1 class="habit-title"><%- habit.name %></H1>
+<H2 class="habit-title">Enter a New Log</H2>
+<div class="log-box">
+<form class='new-form' action="/habit/<%- habit.id %>/new" method="POST">
+    <label>Duration in Hours:<br>
+        <input type="number" name="duration">
+    </label>
+    <label>Specify your progress, No matter how small:<br>
+        <input class='bigger-box' type="text" name="progress">
+    </label>
+    <br><br>
+    <input type="submit" value="Add New Log">
+    </form>
+</div>
+
+
+
+<%- include('../partials/footer') %>
