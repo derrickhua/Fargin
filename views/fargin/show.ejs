@@ -17,10 +17,10 @@
 <div id="hiddenForm" class="edit-box">
     <form action="/habit/<%= habit.id %>?_method=DELETE" method="POST">
         <label>Name:
-            <input type="text" name="name">
+            <input type="text" name="name" autocomplete="off">
         </label><br>
         <label>Specific Goal:
-            <input type="text" name="specificGoal">
+            <input type="text" name="specificGoal" autocomplete="off">
         </label><br>
         <input class="edit-btn" type="submit" value="Change Habit">
         </form>
