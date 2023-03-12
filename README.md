@@ -37,7 +37,7 @@ Fargin means to celebrate another's successes. Often times, we celebrate other's
 
 # Getting Started
 
-## Link: 
+## Link: https://fargin.herokuapp.com/oauth2callback
 ## Trello Board: https://trello.com/invite/b/9hyye7kg/ATTI689082b821ccc6d16a7c14448579a78e9C95868F/productivity-tracker
 
 # IceBox Items
